@@ -1,0 +1,132 @@
+/*html 
+{
+font-size: 62.5%  
+// 16px * 62.5% = 10px
+}
+
+@media only screen and (min-width:321px) 
+{
+    html { font-size: 62.5%!important }
+}
+
+@media only screen and (min-width:361px) 
+{
+    html { font-size: 70.31%!important }
+}
+
+@media only screen and (min-width:376px) 
+{ 
+    html { font-size: 73.24%!important }
+}
+
+@media only screen and (min-width:481px) 
+{
+    html { font-size: 94%!important }
+}
+
+@media only screen and (min-width:561px) 
+{
+    html { font-size: 109%!important }
+}
+
+@media only screen and (min-width:641px) 
+{
+    html { font-size: 125%!important }
+}
+--------------字体随屏幕随屏幕自适应---------------*/
+body
+{
+    color:#666666;
+    background-color: #f5f5f5;
+}
+a
+{
+    color:#666666;
+}
+a:hover
+{
+    text-decoration: none;
+    color:#666666;
+}
+/*-----------------重置-----------------------------*/
+html,body
+{
+    width: 100%;
+    height: 100%;
+}
+.wrapper
+{
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+.empty
+{
+    flex:1;
+}
+.container
+{
+    width: 400px;
+    height: 490px;
+    background-color: #fff;
+    position:relative;
+    text-align: center;
+    padding:25px 10px;
+}
+.sprite-login
+{
+    width: 68px;
+    height: 68px;
+    /*overflow: hidden;*/
+    position:absolute;
+    top:0;
+    right:0;
+}
+.logo
+{
+    width: 50px;
+    height: 50px;
+}
+main p
+{
+    font-size:20px;
+    font-weight: 800;
+    margin:15px;
+}
+form input
+{
+    width: 100%;
+    border:1px solid #e0e0e0;
+    padding:15px;
+    margin:7px 0;
+}
+form button
+{
+    width: 100%;
+    border:none;
+    background-color: #ef5b00;
+    color:#fff;
+    padding:15px;
+    margin:30px 0;
+}
+footer section:nth-of-type(1)
+{
+    margin: 15px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+footer section:nth-of-type(2) span
+{
+    padding:0 5px;
+}
+address
+{
+    margin:15px;
+}
+address p
+{
+    text-align: center;
+    padding:5px;
+    margin:0;
+}

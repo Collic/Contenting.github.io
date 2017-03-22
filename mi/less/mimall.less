@@ -1,0 +1,174 @@
+html 
+{
+font-size: 62.5%  
+// 16px * 62.5% = 10px
+}
+/*iphone5 320*568*/
+@media only screen and (min-width:321px) /*iphone5*/
+{
+    html { font-size: 62.5%!important }
+}
+
+@media only screen and (min-width:361px) 
+{
+    html { font-size: 70.31%!important }
+}
+
+@media only screen and (min-width:376px) /*iphone6*/
+{ 
+    html { font-size: 73.24%!important }
+}
+
+@media only screen and (min-width:481px) 
+{
+    html { font-size: 94%!important }
+}
+
+@media only screen and (min-width:561px) 
+{
+    html { font-size: 109%!important }
+}
+
+@media only screen and (min-width:641px) 
+{
+    html { font-size: 125%!important }
+}
+// --------------字体随屏幕随屏幕自适应---------------
+body
+{
+    color:#666666;
+    background-color: #f5f5f5;
+    padding-bottom:5rem;
+}
+a
+{
+    color:#666666;
+}
+a:hover
+{
+    text-decoration: none;
+    color:#666666;
+}
+//-----------------重置-----------------------------
+
+
+.register
+{
+    position: relative;
+}
+.register .reg
+{
+    width:100vw;
+}
+.register .close
+{
+    position:absolute;
+    width: 5vw;
+    right: 4vw;
+    top: 5vw;
+}
+form
+{
+    width: 95vw;
+    margin:0.5rem auto;
+    font-size: 1.5rem;
+    padding:1rem;
+    border-bottom:1px solid #969696;
+    input
+    {
+        border:none;
+        background-color: #f5f5f5;
+    }
+}
+.carousel-inner img
+{
+    width: 100vw;
+}
+.banner-product
+{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin:0.5rem;
+}
+.banner-product img
+{
+    width:30vw;
+}
+.media
+{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-bottom:1px solid #f5f5f5; 
+    margin:0;
+}
+.media a img
+{
+    width: 30vw;
+    max-width: 280px;
+}
+.media-body
+{
+    padding:0.5rem;
+    h4
+    {
+        font-size:1.2rem;
+        color:#000;
+    }
+    span
+    {
+        font-size:1rem;
+        color:#969696;
+    }
+    p
+    {
+        font-size: 1rem;
+        margin:0;
+        color:red;
+    }
+}
+
+.media .pull-left:nth-of-type(1)
+{
+    position: relative;
+}
+.media:nth-of-type(1) .hot
+{
+    position: absolute;
+    width: 35%;
+    top: 20%;
+    left: 20%;
+}
+
+footer
+{
+    background-color: #fff;
+    border-top:1px solid #f5f5f5;
+    ul li
+    {    
+        text-align: center;
+        span
+        {
+            font-size: 1.5rem;
+            margin-top:0.7rem;
+        }
+        p
+        {
+            font-size: 1rem;
+        }  
+    }
+    .active
+    {
+        color:orange;
+    }
+}
+
+
+
+
+
+
+
+
+
