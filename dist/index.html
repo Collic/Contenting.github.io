@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>大屏幕</title>
+
+    <link rel="stylesheet" type="text/css" href="vendor/flipcountdown/jquery.flipcountdown.css" /><!--时间翻页效果css-->
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+    <script src="./vendor/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="vendor/flipcountdown/jquery.flipcountdown.js"></script><!--时间翻页效果js-->    
+</head>
+<body>
+<div class="screen-wrapper">
+        <div class="bg">
+        <!--logo-->
+          <div class="logo-wrapper"><img src="images/logo.png"></div>
+          <!--安全运营时间-->
+          <div class="timer-bg">
+             <h2 class="tit"><span>安全运营时间：</span><span id="new_year" class="new_year"></span><span>天</span></h2>
+          </div>
+          <!--左边图表信息-->
+          <div class="left-content fl">
+             <!--每日成交额 TOP5and地图-->
+              <div class="top-wrapper clearfix">
+                <!--每日成交额 TOP5-->
+                <div class="top5-wrapper">
+                    <h3>
+                      <span class="name">每日成交额 TOP5</span>
+                    </h3>
+                   <table class="top5-Table">
+                     <thead>
+                        <tr>
+                          <th>地区&nbsp;&nbsp;（省）</th>
+                          <th>金额（元）</th>
+                        </tr>
+                     </thead>
+                     <tbody class="top5-tbody">
+                     </tbody>
+                   </table>
+                </div>
+                <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                <div id="main"></div>
+                <svg id="mapSvgForDes"></svg>
+                <svg id="mapSvg" >
+                   
+                    <defs>
+                      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="10%" style="stop-color:#DAA520;stop-opacity:0.8" />
+                      <stop offset="70%" style="stop-color:#3C9CEF;stop-opacity:0.3" />
+                      </linearGradient>                        
+                                      
+                      <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style="stop-color:white;stop-opacity:0.1" />
+                      <stop offset="100%" style="stop-color:white;stop-opacity:1" />
+                      </linearGradient>                             
+                    
+                      <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="50%" style="stop-color:#3C9CEF;stop-opacity:0.3" />
+                      <stop offset="80%" style="stop-color:#DAA520;stop-opacity:0.8" />            
+                      </linearGradient> 
+                      
+                   
+                     <radialGradient id="grad4" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"> 
+                       <stop offset="50%" style="stop-color:#B1975B;stop-opacity:1" />	 
+                       <stop offset="80%" style="stop-color:#B1975B;stop-opacity:0" />                     
+                      </radialGradient>                   
+                    
+                     <radialGradient id="grad5" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                       <stop offset="0%" style="stop-color:#3C99EB;stop-opacity:1" />
+                       <stop offset="50%" style="stop-color:#0B1429;stop-opacity:1" />
+	                     <stop offset="70%" style="stop-color:#313D48;stop-opacity:1" />
+	                     <stop offset="80%" style="stop-color:#5486A9;stop-opacity:1" />
+	                     <stop offset="100%" style="stop-color:transparent;stop-opacity:0"/>
+                      </radialGradient>                     
+                    
+                      <filter id="f1" x="0" y="0">
+                       <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+                      </filter>
+                    </defs>  
+                                          
+                </svg>
+              </div>
+
+
+              <!--信息分布and合规进程-->
+              <div class="bt-wrapper clearfix">
+                <!--信息分布-->
+                <div class="Info-wrapper fl">
+                      <p>信息分布</p>
+                     <!--平台标的期限-->
+                    <div style="display: flex;">
+                      <div class="pie1-wrapper">
+                        <div id="pie1" ></div>
+                        <ul class="legend-list1">
+                          <li><i class="legend col_1"></i>14天标</li>
+                          <li><i class="legend col_4"></i>12月标</li>
+                          <li><i class="legend col_2"></i>1月标</li>
+                          <li><i class="legend col_5"></i>24月标</li>
+                          <li><i class="legend col_6"></i>3月标</li>
+                        </ul>
+                      </div>
+                      <div class="pie2-wrapper">
+                       <div id="pie2" ></div>
+                        <ul class="legend-list2">
+                          <li><i class="legend col_1"></i>0-1000元</li>
+                          <li><i class="legend col_2"></i>1001-10000元</li>
+                          <li><i class="legend col_4"></i>10001-100000元</li>
+                          <li><i class="legend col_5"></i>100000元以上</li>
+                        </ul>
+                      </div>
+                      <div class="pie3-wrapper">
+                       <div id="pie3" ></div>
+                        <ul class="legend-list3">
+                          <li><i class="legend col_1"></i>25岁以下</li>
+                          <li><i class="legend col_2"></i>46-55岁</li>
+                          <li><i class="legend col_3"></i>26-35岁</li>
+                          <li><i class="legend col_4"></i>55岁以上</li>
+                          <li><i class="legend col_5"></i>36-45岁</li> 
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+                <!--合规进程-->
+                <div class="process-wrapper fl">
+                  <p>合规进程</p>
+                  <div id="pie4"></div>
+                    <div class="process-list">
+                      <div>
+                        <a href="javascript:;" class="percent">业务模式由债权转让调整为点对点直投 <i>已完成</i></a>
+                        <a href="javascript:;" class="percent">完善自动投标授权条款<i>已完成</i></a>
+                        <a href="javascript:;" class="percent">完善网站经营信息披露机制<i>已完成</i></a>
+                        <a href="javascript:;" class="percent">业务额度控制自然人借款不超过20万<i>已完成</i></a>
+                        <a href="javascript:;" class="percent">业务额度控制企业借款不超过100万<i>已完成</i></a>
+                        <a href="javascript:;" class="percent">接入银行存管系统<i>进行中</i></a>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <!--右边图表信息-->
+          <div class="right-content fr">
+            <!--平台数据-->
+            <div class="datas-wrapper ">
+              <p class="p1">平台数据</p>
+               <div class="datas">
+                 <p class="center">总成交额(元)</p>
+                 <p class="money center" id="money-center"></p>
+                 <ul class="ul_1 clearfix">
+                   <li><span>帮助借款人次(次)</span><span class="cl" id="help-borrowers"></span></li>
+                   <li><span>累计注册人数(人)</span><span class="cl" id="registered-numbers"></span></li>
+                 </ul>
+                 <ul class="ul_2 clearfix">
+                   <li><span>交易总笔数(笔)</span><span id="transaction-quantities"></span></li>
+                   <li><span>已赚取总收益(万)</span><span id="total-revenue"></span></li>
+                   <li><span>待还本金(万)</span><span id="repayment-principal"></span></li>
+                 </ul>
+                 <ul class="ul_3 clearfix">
+                   <li><span>平均投资金额(万)</span><span id="average-investment"></span></li>
+                   <li><span>平均借款金额(万)</span><span id="average-loan"></span></li>
+                   <li><span>满标速度(分钟/万)</span><span  id="fullscale-speed"></span></li>
+                 </ul>
+               </div>
+            </div>
+
+            <!--日成交额走势图-->
+            <div style="position: absolute;bottom:55px;">
+              <div class="turnover-chart">
+                <p class="p1">日成交额走势图</p>
+                <div id="line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+</div>
+<div class="full-screen"></div>
+</body>
+</html>
+<!-- ECharts2.2.7 单文件引入 -->
+<script src="./vendor/echarts/build/dist/echarts.js"></script>
+<!--引入path-->
+<script src="./js/index.js"></script>
+
